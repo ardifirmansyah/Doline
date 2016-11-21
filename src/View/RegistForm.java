@@ -21,20 +21,12 @@ public class RegistForm extends javax.swing.JFrame {
         initComponents();
     }
     
-    public String getFirstName() {
-        return firstNameInput.getText();
+    public String getPersonName() {
+        return nameInput.getText();
     }
     
-    public void setFirstname(String firstName) {
-        firstNameInput.setText(firstName);
-    }
-    
-    public String getLastName() {
-        return lastNameInput.getText();
-    }
-    
-    public void setLastName(String lastName) {
-        lastNameInput.setText(lastName);
+    public void setPersonName(String Name) {
+        nameInput.setText(Name);
     }
     
     public String getEmail() {
@@ -120,7 +112,6 @@ public class RegistForm extends javax.swing.JFrame {
         addressLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         addressInput = new javax.swing.JTextArea();
-        lastNameInput = new javax.swing.JTextField();
         emailInput = new javax.swing.JTextField();
         phoneLabel = new javax.swing.JLabel();
         phoneInput = new javax.swing.JTextField();
@@ -129,7 +120,7 @@ public class RegistForm extends javax.swing.JFrame {
         usernameInput = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         retypePasswordLabel = new javax.swing.JLabel();
-        firstNameInput = new javax.swing.JTextField();
+        nameInput = new javax.swing.JTextField();
         passwordInput = new javax.swing.JPasswordField();
         passwordInputAgain = new javax.swing.JPasswordField();
         registerButton = new javax.swing.JButton();
@@ -182,8 +173,6 @@ public class RegistForm extends javax.swing.JFrame {
         addressInput.setRows(5);
         jScrollPane1.setViewportView(addressInput);
 
-        lastNameInput.setText("Last Name");
-
         emailInput.setText("abc@gmail.com");
 
         phoneLabel.setFont(new java.awt.Font("Roboto Condensed", 0, 14)); // NOI18N
@@ -198,7 +187,7 @@ public class RegistForm extends javax.swing.JFrame {
         retypePasswordLabel.setFont(new java.awt.Font("Roboto Condensed", 0, 14)); // NOI18N
         retypePasswordLabel.setText("Retype Password");
 
-        firstNameInput.setText("First Name");
+        nameInput.setText("Input Name");
 
         passwordInput.setText("jPasswordField1");
 
@@ -219,19 +208,6 @@ public class RegistForm extends javax.swing.JFrame {
                     .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(firstNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lastNameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 155, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -243,7 +219,18 @@ public class RegistForm extends javax.swing.JFrame {
                                 .addComponent(phoneLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(phoneInput, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 272, Short.MAX_VALUE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(emailInput, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nameInput, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,8 +258,7 @@ public class RegistForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
-                    .addComponent(firstNameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
+                    .addComponent(nameInput, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -355,7 +341,6 @@ public class RegistForm extends javax.swing.JFrame {
     private javax.swing.JTextArea addressInput;
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField emailInput;
-    private javax.swing.JTextField firstNameInput;
     private javax.swing.JTextField identityInput;
     private javax.swing.JLabel identityLabel;
     private javax.swing.JPanel jPanel1;
@@ -363,7 +348,7 @@ public class RegistForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField lastNameInput;
+    private javax.swing.JTextField nameInput;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPasswordField passwordInput;
     private javax.swing.JPasswordField passwordInputAgain;

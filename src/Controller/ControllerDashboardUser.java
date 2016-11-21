@@ -27,6 +27,7 @@ public class ControllerDashboardUser implements ActionListener {
         view.setVisible(true);
         view.setLocationRelativeTo(null);
         view.addListener(this);
+        view.setUserID(u.getIdUser());
     }
     
     @Override
