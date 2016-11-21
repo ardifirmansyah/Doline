@@ -32,12 +32,7 @@ public class Aplikasi {
         
         /* getUser untuk login */
     public User getUserByUsername(String username) throws SQLException {
-        for (User u : daftarUser) {
-            if (u.getUsername().equals(username)) {
-                return u;
-            }
-        }
-        return null;
+        return connection.getUser(username);
     }
     
     public void blokirUser(User user) {
