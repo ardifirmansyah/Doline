@@ -74,7 +74,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\ardifirmansyah\Pictures\Logo Doline Small.png"/>
+              <Image iconType="3" name="/View/Logo Doline Small.png"/>
             </Property>
           </Properties>
         </Component>

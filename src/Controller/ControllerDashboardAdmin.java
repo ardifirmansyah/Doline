@@ -5,55 +5,18 @@
  */
 package Controller;
 
-import Database.Database;
 import Model.Aplikasi;
-import Model.User;
 import View.DashboardAdmin;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author ardifirmansyah
  */
-public class ControllerDashboardAdmin extends MouseAdapter implements ActionListener {
+public class ControllerDashboardAdmin {
     private Aplikasi model;
     private DashboardAdmin view;
-    private int selected;
-    private Database connection;
     
     public ControllerDashboardAdmin(Aplikasi model) {
-        this.model = model;
-        view = new DashboardAdmin();
-        view.setVisible(true);
-        view.setLocationRelativeTo(null);
-        view.addListener(this);
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        Object source = me.getSource();
         
-        if (source.equals(view.getTblUser())) {
-            try {
-                int selected = view.getSelectedUser();
-                User u = connection.loadAllUser().get(selected);
-            }
-            catch (SQLException ex) {
-                Logger.getLogger(ControllerDashboardAdmin.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent ae) {
-        Object source = ae.getSource();
-        
-        if (source.equals(view.getBtnUbah()))
     }
 }
