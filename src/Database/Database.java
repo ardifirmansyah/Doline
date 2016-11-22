@@ -33,7 +33,16 @@ public class Database {
     public void saveUser(User u) throws SQLException {
         /* memasukkan record user ke database */
             /* query insert user */
-        String query = ""; 
+        String query = "insert into user "
+                + "(Nama,Email,KTP,Alamat,Username,Password,Saldo,Blocked) values ("
+                + "'" + u.getNama() + "',"
+                + "'" + u.getEmail() + "',"
+                + "'" + u.getKtp() + "',"
+                + "'" + u.getAlamat() + "',"
+                + "'" + u.getUsername() + "',"
+                + "'" + u.getPassword() + "',"
+                + u.getSaldo() + ","
+                + u.getBlocked() + ")"; 
             /* eksekusi query dan generate id user */
         statement.execute(query, Statement.RETURN_GENERATED_KEYS);
         ResultSet rs = statement.getGeneratedKeys();

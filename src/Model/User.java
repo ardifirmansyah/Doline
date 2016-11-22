@@ -33,7 +33,7 @@ public class User extends Orang {
     public User (String idUser, String nama, String email, String ktp, String alamat,
             String username, String password, double saldo, boolean isBlocked) {
         super(nama, email, ktp, alamat);
-        this.idUser = idUser;
+        this.idUser = "UDL-" + idUser;
         this.username = username;
         this.password = password;
         this.saldo = saldo;

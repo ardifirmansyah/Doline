@@ -18,6 +18,7 @@ public class Aplikasi {
     private Database connection;
     
     public Aplikasi() throws SQLException {
+        daftarUser = new ArrayList<>();
         connection = new Database();
         if (connection.connect() != null) {
             System.out.println("Koneksi berhasil");

@@ -68,6 +68,7 @@ public class ControllerLoginForm implements ActionListener {
         }
         else if (source.equals(view.getBtnRegister())) {
             new ControllerRegistForm(model);
+            view.dispose();
         }
     }
 }
