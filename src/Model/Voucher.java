@@ -12,6 +12,7 @@ package Model;
 public class Voucher {
     private String kode;
     private long nominal;
+    private boolean used;
     
     public Voucher(String kode) {
         this.kode = kode;
@@ -36,5 +37,13 @@ public class Voucher {
     
     public long getNominal() {
         return nominal;
+    }
+    
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
+    
+    public boolean getUsed() {
+        return used;
     }
 }
