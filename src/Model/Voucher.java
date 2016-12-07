@@ -21,6 +21,13 @@ public class Voucher {
     public Voucher(String kode, long nominal) {
         this.kode = kode;
         this.nominal = nominal;
+        this.used = false;
+    }
+    
+    public Voucher(String kode, long nominal, boolean used) {
+        this.kode = kode;
+        this.nominal = nominal;
+        this.used = used;
     }
     
     public void setKode(String kode) {

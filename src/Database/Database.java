@@ -96,7 +96,7 @@ public class Database {
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
                 /* sesuaikan dengan konstruktor user */
-            v = new Voucher(rs.getString(1), rs.getLong(2));
+            v = new Voucher(rs.getString(1), rs.getLong(2), rs.getBoolean(3));
         }
         return v;
     }
@@ -105,8 +105,8 @@ public class Database {
         /* memasukkan record user ke database */
             /* query insert user */
         String query = "insert into voucher "
-                + "(kode,nominal) values ("
-                + "'" + v.getKode() + "'," + v.getNominal() + ")"; 
+                + "(kode,nominal,used) values ("
+                + "'" + v.getKode() + "'," + v.getNominal() + "," + v.getUsed() + ")"; 
             /* eksekusi query dan generate id user */
         statement.execute(query);
     }

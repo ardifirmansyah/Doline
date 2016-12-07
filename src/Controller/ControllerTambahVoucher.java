@@ -10,6 +10,9 @@ import Model.Voucher;
 import View.TambahVoucherForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,12 +42,12 @@ public class ControllerTambahVoucher implements ActionListener {
                 String kode = view.getKodeVoucher();
                 long nominal = view.getNominal();
                 
-                v = model.getVoucher(kode);
+                v = model.getVoucher(view.getKodeVoucher());
                 
                 if (v == null) {
                     v = new Voucher(kode,nominal);
                     model.tambahVoucher(v);
-                    v = model.getVoucher(kode);
+                    v = model.getVoucher(view.getKodeVoucher());
                     if (v != null) {
                         JOptionPane.showMessageDialog(view, "Voucher berhasil ditambah");
                         view.dispose();
@@ -56,7 +59,8 @@ public class ControllerTambahVoucher implements ActionListener {
                 else {
                     JOptionPane.showMessageDialog(view, "Kode voucher telah terdaftar");
                 }
-            } catch (Exception e) {
+            } catch (SQLException ex) {
+                Logger.getLogger(ControllerRegistForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

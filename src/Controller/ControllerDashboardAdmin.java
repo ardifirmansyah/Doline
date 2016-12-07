@@ -40,6 +40,9 @@ public class ControllerDashboardAdmin implements ActionListener {
                 Logger.getLogger(ControllerDashboardAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        else if (source.equals(view.getBtnTambahVoucher())) {
+            new ControllerTambahVoucher(model);
+        }
         
     }
 }
