@@ -8,6 +8,8 @@ package Database;
 import Model.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -111,6 +113,12 @@ public class Database {
         statement.execute(query);
     }
     
+    public void updateVoucher(Voucher v) throws SQLException {
+        String query = "update voucher set "
+                + "used = " + v.getUsed() + " where kode = '" + v.getKode() + "'";
+        statement.executeUpdate(query);
+    }
+    
     public void saveTransaksi(TransactionRecord tr) throws SQLException {
         /* memasukkan record transaksi ke database */
             /* query insert transaksi */
@@ -154,15 +162,19 @@ public class Database {
         return daftarUser;
     }
     
-    public void updateUser(User u) throws SQLException {
-        String query = "update user set "
-                + "Nama = '" + u.getNama() + "',"
-                + "Email = '" + u.getEmail() + "',"
-                + "KTP = '" + u.getKtp() + "',"
-                + "Alamat = '" + u.getAlamat() + "',"
-                + "Password = '" + u.getPassword() + "',"
-                + "Blocked = " + u.getBlocked() + ","
-                + "where ID = " + u.getIdUser();
-        statement.executeUpdate(query);
+    public void updateUser(User u) {
+        try {
+            String query = "update user set "
+                    + "Saldo = " + u.getSaldo() + ","
+                    + "Nama = '" + u.getNama() + "',"
+                    + "Email = '" + u.getEmail() + "',"
+                    + "KTP = '" + u.getKtp() + "',"
+                    + "Alamat = '" + u.getAlamat() + "',"
+                    + "Password = '" + u.getPassword() + "',"
+                    + "Blocked = " + u.getBlocked() + " where ID = " + u.getIdUser();
+            statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

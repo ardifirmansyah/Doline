@@ -32,6 +32,10 @@ public class ControllerDashboardUser implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
         
+        if (source.equals(view.getBtnTopUp())) {
+            new ControllerTopUpForm(model, u);
+        }
     }
 }

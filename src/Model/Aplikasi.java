@@ -48,6 +48,14 @@ public class Aplikasi {
         return connection.getUser(username);
     }
     
+    public void updateUser(User u) throws SQLException {
+        connection.updateUser(u);
+    }
+    
+    public void updateVoucher(Voucher v) throws SQLException {
+        connection.updateVoucher(v);
+    }
+    
     public void tambahVoucher(Voucher v) throws SQLException {
         connection.tambahVoucher(v);
     }

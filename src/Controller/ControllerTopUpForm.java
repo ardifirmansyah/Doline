@@ -7,9 +7,14 @@ package Controller;
 
 import Model.Aplikasi;
 import Model.User;
+import Model.Voucher;
 import View.TopUpForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,7 +39,31 @@ public class ControllerTopUpForm implements ActionListener {
         Object source = ae.getSource();
         
         if (source.equals(view.getBtnOK())) {
-            
+            try {
+                Voucher v = model.getVoucher(view.getKodeVoucher());
+                if (v != null) {
+                    if (v.getUsed()) {
+                        JOptionPane.showMessageDialog(view, "Voucher telah digunakan");
+                    }
+                    else {
+                        try {
+                            double saldo = u.getSaldo() + v.getNominal();
+                            v.setUsed(true);
+                            model.updateVoucher(v);
+                            u.setSaldo(saldo);
+                            model.updateUser(u);
+                            v = model.getVoucher(view.getKodeVoucher());
+                            if (v.getUsed()) {
+                                JOptionPane.showMessageDialog(view, "Saldo berhasil ditambahkan!");
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(ControllerTopUpForm.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ControllerTopUpForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
