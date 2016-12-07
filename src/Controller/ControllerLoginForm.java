@@ -49,8 +49,13 @@ public class ControllerLoginForm implements ActionListener {
                     u = model.getUserByUsername(username);
                     if (u != null) {
                         if (password.equals(u.getPassword())) {
-                            new ControllerDashboardUser(model, u);
-                            view.dispose();
+                            if (u.getBlocked()) {
+                                JOptionPane.showMessageDialog(view, "Akun anda di blokir. Hubungi Admin");
+                            }
+                            else {
+                                new ControllerDashboardUser(model, u);
+                                view.dispose();
+                            }
                         }
                         else {
                             JOptionPane.showMessageDialog(view, "Password salah");

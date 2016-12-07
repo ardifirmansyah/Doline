@@ -76,7 +76,7 @@ public class Database {
             /* mencari record user dari database */
         User u = null;
             /* query select user */
-        String query = "select * from user where ID=" + id + ""; 
+        String query = "select * from user where ID=" + id; 
             /* eksekusi query */
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {

@@ -62,12 +62,13 @@ public class ControllerAdminDaftarUser extends MouseAdapter implements ActionLis
         }
         else if (source.equals(view.getBtnBlokir())) {
             try {
-                int selected = view.getSelectedUser();
+                int selected = view.getSelectedUser() + 1;
                 if (selected != -1) {
-                    User u = connection.getUserByID(selected);
-                    u.setBlocked(true);
-                    connection.updateUser(u);
-                    view.viewAllUser(connection.loadAllUser());
+                    System.out.println(selected);
+                    User u = model.getUserByID(selected);
+                    u.setBlocked(!(u.getBlocked()));
+                    model.updateUser(u);
+                    view.viewAllUser(model.loadAllUser());
                 }
                 else {
                     JOptionPane.showMessageDialog(view, "Anda belum memilih User");

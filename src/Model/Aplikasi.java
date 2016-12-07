@@ -48,6 +48,10 @@ public class Aplikasi {
         return connection.getUser(username);
     }
     
+    public User getUserByID(int id) throws SQLException {
+        return connection.getUserByID(id);
+    }
+    
     public void updateUser(User u) throws SQLException {
         connection.updateUser(u);
     }
