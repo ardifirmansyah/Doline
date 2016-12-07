@@ -8,6 +8,8 @@ package Model;
 import Database.Database;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,22 +20,40 @@ public class Aplikasi {
     private Database connection;
     
     public Aplikasi() throws SQLException {
-        daftarUser = new ArrayList<>();
-        connection = new Database();
-        if (connection.connect() != null) {
-            System.out.println("Koneksi berhasil");
-        } 
+//        daftarUser = new ArrayList<>();
+        try {
+            connection = new Database();
+            if (connection.connect() != null) {
+                JOptionPane.showMessageDialog(new JFrame(), "Koneksi berhasil");
+            }
+        } catch (SQLException se) {
+            JOptionPane.showMessageDialog(new JFrame(), se.getMessage());
+            JOptionPane.showMessageDialog(new JFrame(), "Akan keluar program");
+            System.exit(0);
+        }
 //        this.daftarUser = connection.loadAllUser();
     }
     
+    public ArrayList loadAllUser() throws SQLException {
+        return connection.loadAllUser();
+    }
+    
     public void tambahUser(User user) throws SQLException {
-        daftarUser.add(user);
+//        daftarUser.add(user);
         connection.saveUser(user);
     }
         
         /* getUser untuk login */
     public User getUserByUsername(String username) throws SQLException {
         return connection.getUser(username);
+    }
+    
+    public void tambahVoucher(Voucher v) throws SQLException {
+        connection.tambahVoucher(v);
+    }
+    
+    public Voucher getVoucher(String kode) throws SQLException {
+        return connection.getVoucher(kode);
     }
     
     public void blokirUser(User user) {

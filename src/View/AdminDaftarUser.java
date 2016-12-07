@@ -35,7 +35,7 @@ public class AdminDaftarUser extends javax.swing.JFrame {
         return btnHapus;
     }
     
-    public JToggleButton getBtnBlokir() {
+    public JButton getBtnBlokir() {
         return btnBlokir;
     }
     
@@ -81,7 +81,7 @@ public class AdminDaftarUser extends javax.swing.JFrame {
             else {
                 blocked = "Tidak";
             }
-            data[i][0] = u.getIdUser();
+            data[i][0] = String.valueOf(u.getIdUser());
             data[i][1] = u.getNama();
             data[i][2] = String.valueOf(u.getSaldo());
             data[i][3] = blocked;
@@ -89,11 +89,11 @@ public class AdminDaftarUser extends javax.swing.JFrame {
         tblUser.setModel(new DefaultTableModel(data,title));
     }
     
-//    public void reset() {
-//        btnUbah.disable();
-//        btnHapus.disable();
-//        btnBlokir.disable();
-//    }
+    public void reset() {
+        btnUbah.disable();
+        btnHapus.disable();
+        btnBlokir.disable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -110,8 +110,8 @@ public class AdminDaftarUser extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnUbah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        btnBlokir = new javax.swing.JToggleButton();
         btnLihatTransaksi = new javax.swing.JButton();
+        btnBlokir = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblUser = new javax.swing.JTable();
@@ -151,9 +151,9 @@ public class AdminDaftarUser extends javax.swing.JFrame {
 
         btnHapus.setText("Hapus");
 
-        btnBlokir.setText("Blokir");
-
         btnLihatTransaksi.setText("Lihat Transaksi User");
+
+        btnBlokir.setText("Blokir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -176,9 +176,9 @@ public class AdminDaftarUser extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUbah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(btnLihatTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHapus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBlokir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLihatTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnBlokir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -233,7 +233,7 @@ public class AdminDaftarUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
-    private javax.swing.JToggleButton btnBlokir;
+    private javax.swing.JButton btnBlokir;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnKembali;
     private javax.swing.JButton btnLihatTransaksi;

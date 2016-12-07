@@ -12,7 +12,7 @@ package Model;
 public class User extends Orang {
     int iterator;
     
-    private String idUser;
+    private int idUser;
     private String username;
     private String password;
     private double saldo;
@@ -22,7 +22,7 @@ public class User extends Orang {
     public User (String nama, String email, String ktp, String alamat, 
             String username, String password) {
         super(nama, email, ktp, alamat);
-        this.idUser = "UDL-" + (iterator++);
+        this.idUser = -1;
         this.username = username;
         this.password = password;
         this.saldo = 0;
@@ -30,21 +30,21 @@ public class User extends Orang {
     }
     
         /* Contructor untuk pemanggilan akun */
-    public User (String idUser, String nama, String email, String ktp, String alamat,
+    public User (int idUser, String nama, String email, String ktp, String alamat,
             String username, String password, double saldo, boolean isBlocked) {
         super(nama, email, ktp, alamat);
-        this.idUser = "UDL-" + idUser;
+        this.idUser = idUser;
         this.username = username;
         this.password = password;
         this.saldo = saldo;
         this.isBlocked = isBlocked;
     }
     
-    public void setIdUser(String idUser) {
+    public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
     
-    public String getIdUser() {
+    public int getIdUser() {
         return idUser;
     }
     

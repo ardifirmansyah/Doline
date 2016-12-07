@@ -7,7 +7,7 @@ package Controller;
 
 import Model.Aplikasi;
 import Model.User;
-import View.DashboardUser;
+import View.TopUpForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,23 +15,26 @@ import java.awt.event.ActionListener;
  *
  * @author ardifirmansyah
  */
-public class ControllerDashboardUser implements ActionListener {
+public class ControllerTopUpForm implements ActionListener {
     private Aplikasi model;
-    private DashboardUser view;
+    private TopUpForm view;
     private User u;
     
-    public ControllerDashboardUser(Aplikasi model, User u) {
+    public ControllerTopUpForm(Aplikasi model, User u) {
         this.model = model;
         this.u = u;
-        view = new DashboardUser();
+        view = new TopUpForm();
         view.setVisible(true);
         view.setLocationRelativeTo(null);
         view.addListener(this);
-        view.setUserID("UDL" + u.getIdUser());
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
+        Object source = ae.getSource();
         
+        if (source.equals(view.getBtnOK())) {
+            
+        }
     }
 }

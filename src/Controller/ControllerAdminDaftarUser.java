@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +31,7 @@ public class ControllerAdminDaftarUser extends MouseAdapter implements ActionLis
     public ControllerAdminDaftarUser(Aplikasi model) throws SQLException {
         this.model = model;
         view = new AdminDaftarUser();
-        view.viewAllUser(connection.loadAllUser());
+        view.viewAllUser(model.loadAllUser());
         view.setVisible(true);
         view.setLocationRelativeTo(null);
         view.addListener(this);
@@ -55,6 +56,25 @@ public class ControllerAdminDaftarUser extends MouseAdapter implements ActionLis
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         
-//        if (source.equals(view.getBtnUbah()))
+        if (source.equals(view.getBtnKembali())) {
+            new ControllerDashboardAdmin(model);
+            view.dispose();
+        }
+        else if (source.equals(view.getBtnBlokir())) {
+            try {
+                int selected = view.getSelectedUser();
+                if (selected != -1) {
+                    User u = connection.getUserByID(selected);
+                    u.setBlocked(true);
+                    connection.updateUser(u);
+                    view.viewAllUser(connection.loadAllUser());
+                }
+                else {
+                    JOptionPane.showMessageDialog(view, "Anda belum memilih User");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ControllerAdminDaftarUser.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 }

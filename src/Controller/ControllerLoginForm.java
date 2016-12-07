@@ -5,13 +5,11 @@
  */
 package Controller;
 
-import Database.Database;
 import Model.*;
 import View.LoginForm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;

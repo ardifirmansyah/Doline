@@ -134,9 +134,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnUbah" alignment="1" pref="38" max="32767" attributes="0"/>
-                      <Component id="btnHapus" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnBlokir" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnLihatTransaksi" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnHapus" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnBlokir" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -154,14 +154,14 @@
             <Property name="text" type="java.lang.String" value="Hapus"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="btnBlokir">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Blokir"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="btnLihatTransaksi">
           <Properties>
             <Property name="text" type="java.lang.String" value="Lihat Transaksi User"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBlokir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Blokir"/>
           </Properties>
         </Component>
       </SubComponents>

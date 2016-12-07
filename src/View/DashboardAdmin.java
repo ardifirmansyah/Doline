@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -27,6 +28,16 @@ public class DashboardAdmin extends javax.swing.JFrame {
     public JButton getBtnDaftarUser() {
         return btnDaftarUser;
     }
+    
+    public JButton getBtnTambahVoucher() {
+        return btnTambahVoucher;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnDaftarTransaksi.addActionListener(e);
+        btnDaftarUser.addActionListener(e);
+        btnTambahVoucher.addActionListener(e);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,6 +52,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnDaftarUser = new javax.swing.JButton();
         btnDaftarTransaksi = new javax.swing.JButton();
+        btnTambahVoucher = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -53,6 +65,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         btnDaftarTransaksi.setText("Lihat Keseluruhan Transaksi");
 
+        btnTambahVoucher.setText("Tambah Voucher");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -61,17 +75,20 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDaftarUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDaftarTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                    .addComponent(btnDaftarTransaksi, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(btnTambahVoucher, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(37, 37, 37)
                 .addComponent(btnDaftarUser, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnDaftarTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTambahVoucher, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -100,6 +117,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDaftarTransaksi;
     private javax.swing.JButton btnDaftarUser;
+    private javax.swing.JButton btnTambahVoucher;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

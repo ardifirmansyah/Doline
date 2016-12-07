@@ -50,7 +50,7 @@ public class Database {
         if (rs.next()) {
             generatedIdUser = rs.getInt(1);
         }
-        u.setIdUser("UDL-"+generatedIdUser);
+        u.setIdUser(generatedIdUser);
     }
     
     public User getUser(String username) throws SQLException {
@@ -62,12 +62,53 @@ public class Database {
         ResultSet rs = statement.executeQuery(query);
         if (rs.next()) {
                 /* sesuaikan dengan konstruktor user */
-            u = new User(rs.getString(1), rs.getString(2),
+            u = new User(rs.getInt(1), rs.getString(2),
                     rs.getString(3),rs.getString(4),rs.getString(5),
                     rs.getString(6),rs.getString(7),rs.getDouble(8),
                     rs.getBoolean(9));
         }
         return u;
+    }
+ 
+    public User getUserByID(int id) throws SQLException {
+            /* mencari record user dari database */
+        User u = null;
+            /* query select user */
+        String query = "select * from user where ID=" + id + ""; 
+            /* eksekusi query */
+        ResultSet rs = statement.executeQuery(query);
+        if (rs.next()) {
+                /* sesuaikan dengan konstruktor user */
+            u = new User(rs.getInt(1), rs.getString(2),
+                    rs.getString(3),rs.getString(4),rs.getString(5),
+                    rs.getString(6),rs.getString(7),rs.getDouble(8),
+                    rs.getBoolean(9));
+        }
+        return u;
+    }
+    
+    public Voucher getVoucher(String kode) throws SQLException {
+            /* mencari record voucher dari database by kode */
+        Voucher v = null;
+            /* query select voucher */
+        String query = "select * from voucher where kode='" + kode + "'"; 
+            /* eksekusi query */
+        ResultSet rs = statement.executeQuery(query);
+        if (rs.next()) {
+                /* sesuaikan dengan konstruktor user */
+            v = new Voucher(rs.getString(1), rs.getLong(2));
+        }
+        return v;
+    }
+    
+    public void tambahVoucher(Voucher v) throws SQLException {
+        /* memasukkan record user ke database */
+            /* query insert user */
+        String query = "insert into voucher "
+                + "(kode,nominal) values ("
+                + "'" + v.getKode() + "'," + v.getNominal() + ")"; 
+            /* eksekusi query dan generate id user */
+        statement.execute(query);
     }
     
     public void saveTransaksi(TransactionRecord tr) throws SQLException {
@@ -104,12 +145,24 @@ public class Database {
         String query = "select * from User";
         ResultSet rs = statement.executeQuery(query);
         while (rs.next()) {
-            u = new User(rs.getString(1), rs.getString(2),
+            u = new User(rs.getInt(1), rs.getString(2),
                     rs.getString(3),rs.getString(4),rs.getString(5),
                     rs.getString(6),rs.getString(7),rs.getDouble(8),
                     rs.getBoolean(9));
             daftarUser.add(u);
         }
         return daftarUser;
+    }
+    
+    public void updateUser(User u) throws SQLException {
+        String query = "update user set "
+                + "Nama = '" + u.getNama() + "',"
+                + "Email = '" + u.getEmail() + "',"
+                + "KTP = '" + u.getKtp() + "',"
+                + "Alamat = '" + u.getAlamat() + "',"
+                + "Password = '" + u.getPassword() + "',"
+                + "Blocked = " + u.getBlocked() + ","
+                + "where ID = " + u.getIdUser();
+        statement.executeUpdate(query);
     }
 }
