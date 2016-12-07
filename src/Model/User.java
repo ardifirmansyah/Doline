@@ -5,18 +5,19 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author PRAKTIKUM
  */
-public class User extends Orang {
-    int iterator;
-    
+public class User extends Orang {    
     private int idUser;
     private String username;
     private String password;
     private double saldo;
     private boolean isBlocked = false;
+    private ArrayList<TransactionRecord> mutasi;
 
         /* Contructor untuk pembuatan akun */
     public User (String nama, String email, String ktp, String alamat, 
@@ -38,6 +39,19 @@ public class User extends Orang {
         this.password = password;
         this.saldo = saldo;
         this.isBlocked = isBlocked;
+    }
+    
+        /* Contructor untuk pemanggilan akun */
+    public User (int idUser, String nama, String email, String ktp, String alamat,
+            String username, String password, double saldo, boolean isBlocked,
+            ArrayList<TransactionRecord> mutasi) {
+        super(nama, email, ktp, alamat);
+        this.idUser = idUser;
+        this.username = username;
+        this.password = password;
+        this.saldo = saldo;
+        this.isBlocked = isBlocked;
+        this.mutasi = mutasi;
     }
     
     public void setIdUser(int idUser) {
