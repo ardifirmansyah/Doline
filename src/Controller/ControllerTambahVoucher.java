@@ -51,6 +51,7 @@ public class ControllerTambahVoucher implements ActionListener {
                     if (v != null) {
                         JOptionPane.showMessageDialog(view, "Voucher berhasil ditambah");
                         view.dispose();
+                        new ControllerDashboardAdmin(model);
                     }
                     else {
                         JOptionPane.showMessageDialog(view, "Penambahan voucher gagal");
@@ -59,8 +60,11 @@ public class ControllerTambahVoucher implements ActionListener {
                 else {
                     JOptionPane.showMessageDialog(view, "Kode voucher telah terdaftar");
                 }
-            } catch (SQLException ex) {
+            } catch (SQLException | NumberFormatException ex) {
                 Logger.getLogger(ControllerRegistForm.class.getName()).log(Level.SEVERE, null, ex);
+                if (ex instanceof NumberFormatException) {
+                    JOptionPane.showMessageDialog(view, "Nominal salah, masukkan hanya angka");
+                }
             }
         }
     }

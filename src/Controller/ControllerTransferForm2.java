@@ -7,7 +7,7 @@ package Controller;
 
 import Model.Aplikasi;
 import Model.User;
-import View.DashboardUser;
+import View.TransferForm2;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,30 +15,32 @@ import java.awt.event.ActionListener;
  *
  * @author ardifirmansyah
  */
-public class ControllerDashboardUser implements ActionListener {
+class ControllerTransferForm2 implements ActionListener {
     private Aplikasi model;
-    private DashboardUser view;
+    private TransferForm2 view;
     private User u;
-    
-    public ControllerDashboardUser(Aplikasi model, User u) {
+    private User tujuan;
+
+    public ControllerTransferForm2(Aplikasi model, User u, User tujuan, double nominal) {
         this.model = model;
         this.u = u;
-        view = new DashboardUser();
+        this.tujuan = tujuan;
+        view = new TransferForm2();
+        view.setNamaTujuan(tujuan.getNama());
+        view.setUsernameTujuan(tujuan.getUsername());
+        view.setNominalTransfer(nominal);
         view.setVisible(true);
         view.setLocationRelativeTo(null);
         view.addListener(this);
-        view.setUserID("UDL" + u.getIdUser());
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         Object source = ae.getSource();
         
-        if (source.equals(view.getBtnTopUp())) {
-            new ControllerTopUpForm(model, u);
-        }
-        else if (source.equals(view.getBtnTransfer())) {
-            new ControllerTransferForm1(model, u);
+        if (source.equals(view.getBtnKonfirmasi())) {
+            
         }
     }
+    
 }

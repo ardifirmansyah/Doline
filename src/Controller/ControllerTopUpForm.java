@@ -55,6 +55,7 @@ public class ControllerTopUpForm implements ActionListener {
                             v = model.getVoucher(view.getKodeVoucher());
                             if (v.getUsed()) {
                                 JOptionPane.showMessageDialog(view, "Saldo berhasil ditambahkan!");
+                                view.dispose();
                             }
                         } catch (SQLException ex) {
                             Logger.getLogger(ControllerTopUpForm.class.getName()).log(Level.SEVERE, null, ex);

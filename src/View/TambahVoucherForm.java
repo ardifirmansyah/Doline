@@ -5,7 +5,6 @@
  */
 package View;
 
-import Controller.ControllerTambahVoucher;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
@@ -34,7 +33,7 @@ public class TambahVoucherForm extends javax.swing.JFrame {
         tfNominal.setText(String.valueOf(nominal));
     }
     
-    public long getNominal() {
+    public long getNominal() throws NumberFormatException {
         return Long.parseLong(tfNominal.getText());
     }
     

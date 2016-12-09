@@ -35,12 +35,14 @@ public class ControllerDashboardAdmin implements ActionListener {
         
         if (source.equals(view.getBtnDaftarUser())) {
             try {
+                view.dispose();
                 new ControllerAdminDaftarUser(model);
             } catch (SQLException ex) {
                 Logger.getLogger(ControllerDashboardAdmin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         else if (source.equals(view.getBtnTambahVoucher())) {
+            view.dispose();
             new ControllerTambahVoucher(model);
         }
         
