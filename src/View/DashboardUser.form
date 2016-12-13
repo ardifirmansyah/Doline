@@ -3,6 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -130,12 +131,6 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="IDLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="userID" min="-2" pref="71" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnHome" max="32767" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
@@ -154,6 +149,16 @@
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="IDLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="userID" min="-2" pref="71" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="IDLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="userSaldo" min="-2" pref="71" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -165,6 +170,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="IDLabel" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="userID" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="IDLabel1" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                          <Component id="userSaldo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnHome" min="-2" pref="44" max="-2" attributes="0"/>
@@ -224,6 +231,16 @@
             <Component class="javax.swing.JLabel" name="userID">
               <Properties>
                 <Property name="text" type="java.lang.String" value="userID"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="IDLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Saldo : "/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="userSaldo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="userSaldo"/>
               </Properties>
             </Component>
           </SubComponents>

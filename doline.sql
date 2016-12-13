@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2016 at 03:04 AM
+-- Generation Time: Dec 13, 2016 at 03:15 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -59,7 +59,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`ID`, `Nama`, `Email`, `KTP`, `Alamat`, `Username`, `Password`, `Saldo`, `Blocked`) VALUES
 (1, 'M Ardi Firmansyah', 'ardifirmansyah30@gmail.com', '1301144317', 'Pondok Arjuna 2 Sukabirus', 'ardifirmansyah', 'ardi3008', 7, 0),
-(2, 'ardi', 'ardi@gmail.com', '1301144317', 'sukabirus', 'ardi3008', 'firmansyah', 0, 1);
+(2, 'ardi', 'ardi@gmail.com', '1301144317', 'sukabirus', 'ardi3008', 'firmansyah', 12000, 0),
+(3, 'test', 'test@test.com', '12345', 'telkom', 'test', 'test', 10000, 0);
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,12 @@ CREATE TABLE `voucher` (
 
 INSERT INTO `voucher` (`kode`, `nominal`, `used`) VALUES
 ('dua', 2, 0),
-('satu', 1, 1);
+('duabelas', 12000, 1),
+('satu', 1, 1),
+('satuu', 11, 0),
+('satuuu', 111, 0),
+('tes', 0, 0),
+('test', 10000, 1);
 
 --
 -- Indexes for dumped tables
@@ -107,7 +113,7 @@ ALTER TABLE `voucher`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

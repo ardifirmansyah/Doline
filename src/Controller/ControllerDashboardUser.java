@@ -28,6 +28,7 @@ public class ControllerDashboardUser implements ActionListener {
         view.setLocationRelativeTo(null);
         view.addListener(this);
         view.setUserID("UDL" + u.getIdUser());
+        view.setUserSaldo(u.getSaldo());
     }
     
     @Override
@@ -36,9 +37,11 @@ public class ControllerDashboardUser implements ActionListener {
         
         if (source.equals(view.getBtnTopUp())) {
             new ControllerTopUpForm(model, u);
+            view.dispose();
         }
         else if (source.equals(view.getBtnTransfer())) {
             new ControllerTransferForm1(model, u);
+            view.dispose();
         }
     }
 }
